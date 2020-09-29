@@ -5,7 +5,7 @@ var modal = document.getElementById('simpleModal');
 var modalBtn = document.getElementById('modalBtn');
 
 //get close button
-var closeBtn = document.getElementById('closeBtn');
+var closeBtn = document.getElementsByClassName('closeBtn')[0];
 
 //listen for open click
 modalBtn.addEventListener('click', openModal);
@@ -13,12 +13,22 @@ modalBtn.addEventListener('click', openModal);
 //listen for close click
 closeBtn.addEventListener('click', closeModal);
 
+//listen for outside click
+window.addEventListener('click', outsideClick);
+
 //function to open modal
-function open() {}
+function openModal() {
   modal.style.display = 'block';
 }
 
 //function to close modal
-function open() {}
+function closeModal() {
   modal.style.display = 'none';
+}
+
+//function to close modal if outside clicking
+function outsideClick(e) {
+  if(e.target == modal){
+   modal.style.display = 'none';
+  }
 }
